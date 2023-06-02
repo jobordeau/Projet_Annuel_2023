@@ -1,0 +1,144 @@
+Cas de test_2:
+
+std::vector<int> npl = {2,2,1};
+input = {1, 0}, {0, 1},{0, 0},{1, 1}
+output = {1},
+         {1},
+         {-1},
+         {-1}
+
+Résultats:
+
+output before train: 0.677302
+
+output before train: 0.714116
+
+output before train: 0.703221
+
+output before train: 0.725862
+
+start training
+
+output after train: 0.8918
+
+ propagate work
+output after train: 0.888707
+
+ propagate work
+output after train: -0.881955
+
+ propagate work
+output after train: -0.891935
+
+Resultat_2 avec lr =0.2, observation = meilleur résultats
+
+output before train: 0.386407
+
+ propagate work
+output before train: -0.00737643
+
+ propagate work
+output before train: 0.0753801
+
+ propagate work
+output before train: 0.222203
+
+start training
+ propagate work
+output after train: 0.92858
+
+ propagate work
+output after train: 0.922168
+
+ propagate work
+output after train: -0.943476
+
+ propagate work
+output after train: -0.955125
+
+Test 1 sur le data_set:
+std::vector<int> npl = {100,30,1};
+int iteration_count = 1000;
+double alpha = 0.2;
+
+std::vector<std::vector<double>> all_samples_expected_outputs = {
+            {1},
+            {1},
+            {2},
+    };
+Input = vecteur de 3 images de drapeaux: France, France, Canada
+Représentation en vecteur = {1,1,2}
+
+Résultats:
+ propagate work
+output before train: 0.999999
+
+ propagate work
+output before train: 0.999997
+
+ propagate work
+output before train: 0.589749
+
+start training
+ propagate work
+output after train: 1
+
+ propagate work
+output after train: 1
+
+ propagate work
+output after train: 0.999995
+
+Test_2 sur les memes images:
+std::vector<int> npl = {100,30, 30,1};
+
+output before train: -0.99993
+output before train: -0.99819
+output before train: -0.999412
+output after train: 0.999986
+output after train: 0.999942
+output after train: 1
+
+
+Test_3:
+std::vector<int> npl = {100,50,1};
+lr = 0.2
+
+Résultas:
+ propagate work
+output before train: -0.998875
+
+ propagate work
+output before train: -0.999447
+
+ propagate work
+output before train: -0.999449
+
+start training
+ propagate work
+output after train: 1
+
+ propagate work
+output after train: 1
+
+ propagate work
+output after train: 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

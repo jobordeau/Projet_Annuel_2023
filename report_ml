@@ -1,0 +1,19 @@
+Cas de Test:
+Classification Results:
+Features: 1 1 => Prediction: 1 1
+Features: 2 3 => Prediction: -1 -1
+Features: 3 3 => Prediction: -1 -1
+
+
+Images de dataset:
+lr= 0.01, epochs=100, std::vector<std::vector<double>> classificationTargets = {
+                                  {1},
+                                  {1},
+                                  {2}
+
+                          };
+
+Classification Results:
+1
+1
+1
