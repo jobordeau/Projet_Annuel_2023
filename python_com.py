@@ -19,24 +19,13 @@ def image_transform(image_dir):
         print(f"{vector}\n {len(vector)}")
 
 
-'''def expand_dims(liste, axis):
-    liste = np.array(liste)  # convert input to NumPy array
-    shape = list(liste.shape)
-    axis = axis if axis >= 0 else len(shape) + 1 + axis
-    shape.insert(axis, 1)
-    return liste.reshape(shape)'''
-
-
 def projections(test_samples, actual_label, predicted_label, output_classes):
-    ko_cases_indices = np.where(actual_label != predicted_label)[0]
-
-    fig, axes = plt.subplots(nrows=1, ncols=len(ko_cases_indices), figsize=(15, 5))
-
+    ko_cases_indices = np.where(np.array(actual_label) != np.array(predicted_label))[0]
+    fig, axes = plt.subplots(1, len(ko_cases_indices), figsize=(15, 5))
     for i, idx in enumerate(ko_cases_indices):
-        image = test_samples[idx]
+        image = np.array(test_samples[idx]).reshape((1, -1))
         true_label = output_classes[actual_label[idx]]
-        predicted_label = output_classes[predicted_label[idx]]
-
+        predicted_label = output_classes[predicted_label]
         axes[i].imshow(image, cmap='gray')
         axes[i].set_title(f'True: {true_label}\nPredicted: {predicted_label}')
         axes[i].axis('off')
@@ -56,15 +45,10 @@ if __name__ == "__main__":
 
     # from_buffered()fonction retrun ctype objects
 
-    '''arr = np.array([1, 2, 3])  # 1-dimensional array
-    expanded_arr = expand_dims(arr, axis=-16)
-    print(expanded_arr)'''
-
     # image_transform("D:\school\PROJET_ANNUEL_IABD3\PMC\dataset1")
 
-    test_samples = [[[1, 0], [0, 1], [0, 0], [1, 1]]]  # Les données de test (images)
-    actual_label = [[1, 1, -1, -1]]  # Les vraies étiquettes correspondantes
-    predicted_label = 0  # Les étiquettes prédites par le modèle
-    output_classes = [[1], [-1]]  # Les noms de classe correspondants
-
+    test_samples = [[1, 0], [0, 1], [0, 0], [1, 1]]
+    actual_label = [1, 1, -1, -1]
+    predicted_label = 0
+    output_classes = [1, -1]
     projections(test_samples, actual_label, predicted_label, output_classes)
