@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test de modèle linéaire</title>
+  <style>
+    /* Styles CSS */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+    
+    #upload-form {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #result {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Test de modèle linéaire</h1>
+
+  <div id="upload-form">
+     <h2>choisir un modèle : </h2>
+    <input type="file" id="model-upload" accept=".py, .cpp">
+    <br>
+    <h2>choisir une image : </h2>
+    <input type="file" id="image-upload" accept="image/*">
+    <br>
+    <br>
+    <br>
+    <button onclick="runModel()">Lancer le test</button>
+  </div>
+
+  <div id="result">
+    <h2>Résultat du test :</h2>
+    <p id="prediction"></p>
+  </div>
+
+  <script>
+    function runModel() {
+      const modelFile = document.getElementById('model-upload').files[0];
+      const imageFile = document.getElementById('image-upload').files[0];
+
+      if (modelFile && imageFile) {
+        const formData = new FormData();
+        formData.append('model', modelFile);
+        formData.append('image', imageFile);
+
+        fetch('/run_model', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          const predictionElement = document.getElementById('prediction');
+          predictionElement.textContent = `Prédiction : ${data.prediction}`;
+        })
+        .catch(error => console.error('Erreur lors de la requête :', error));
+      }
+    }
+  </script>
+</body>
+</html>
