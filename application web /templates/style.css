@@ -1,0 +1,41 @@
+.custom-button {
+
+    background-color: #4c84af;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    
+  }
+
+  body {
+
+    font-family: Arial, sans-serif;
+    margin:9%;
+    padding: 0;
+    background-image: url('../templates/c.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    
+  }
+
+  h1 {
+    text-align: center;
+    color: #215a83;
+  }
+  
+  #upload-form {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  #result {
+    text-align: center;
+    margin-top: 20px;
+  }
